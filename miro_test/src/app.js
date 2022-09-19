@@ -14,6 +14,7 @@ async function translation() {
           items.content = await translate(items.content.replace(/<\/?[^>]+(>|$)/g, ""), language) //Content remove html Tag and 
         } 
       case 'card': //For every selected card
+      //TODO runtime optimisation  IF statement
         if(items.title) {
           items.title = await translate(items.title.replace(/<\/?[^>]+(>|$)/g, ""), language) //Content remove html Tag and    
           items.description = await translate(items.description.replace(/<\/?[^>]+(>|$)/g, ""), language)
