@@ -13,12 +13,33 @@ async function translation() {
       case 'sticky_note': //For every selected Stickynote
         if (items.content) {
           items.content = await translate(items.content.replace(htmlTag, ""), language) //Content remove html Tag and 
-        } 
+        }
       case 'card': //For every selected card
-      //TODO runtime optimisation  IF statement
-        if(items.title) {
+        //TODO runtime optimisation  IF statement
+        if (items.title) {
           items.title = await translate(items.title.replace(htmlTag, ""), language) //Content remove html Tag and    
           items.description = await translate(items.description.replace(htmlTag, ""), language)
+        }
+      case 'text':
+        if (items.content) {
+          items.content = await translate(items.content.replace(htmlTag, ""), language) //Content remove html Tag and    
+        }
+      case 'app_card':
+        if (items.title) {
+          items.title = await translate(items.title.replace(htmlTag, ""), language) //Content remove html Tag and 
+          items.description = await translate(items.description.replace(htmlTag, ""), language)
+        }
+      case 'shape':
+        if (items.content) {
+          items.content = await translate(items.content.replace(htmlTag, ""), language) //Content remove html Tag and    
+        }
+      case 'frame':
+        if (items.title) {
+          items.title = await translate(items.title.replace(htmlTag, ""), language) //Content remove html Tag and 
+        }
+      case 'image':
+        if (items.title) {
+          items.title = await translate(items.title.replace(htmlTag, ""), language) //Content remove html Tag and 
         }
     }
     items.sync();
@@ -26,4 +47,3 @@ async function translation() {
 }
 
 await translation();
-
