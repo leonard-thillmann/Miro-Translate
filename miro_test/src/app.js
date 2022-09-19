@@ -2,6 +2,7 @@ translate.engine = "google"; // Or "yandex", "libre", "deepl"
 translate.from = "ger" //Set a language to translate from
 let language = "eng"; //Set a language to translate into
 
+const htmlTag = '/<\/?[^>]+(>|$)/g'
 
 // Get all items from the board
 const items = await miro.board.getSelection();
@@ -11,13 +12,13 @@ async function translation() {
     switch (items.type) {
       case 'sticky_note': //For every selected Stickynote
         if (items.content) {
-          items.content = await translate(items.content.replace(/<\/?[^>]+(>|$)/g, ""), language) //Content remove html Tag and 
+          items.content = await translate(items.content.replace(htmlTag, ""), language) //Content remove html Tag and 
         } 
       case 'card': //For every selected card
       //TODO runtime optimisation  IF statement
         if(items.title) {
-          items.title = await translate(items.title.replace(/<\/?[^>]+(>|$)/g, ""), language) //Content remove html Tag and    
-          items.description = await translate(items.description.replace(/<\/?[^>]+(>|$)/g, ""), language)
+          items.title = await translate(items.title.replace(htmlTag, ""), language) //Content remove html Tag and    
+          items.description = await translate(items.description.replace(htmlTag, ""), language)
         }
     }
     items.sync();
