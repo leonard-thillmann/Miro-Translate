@@ -19,6 +19,7 @@ async function getStickyNotes() {
         if (items.content) {
           stickyContentTrimmed = items.content.replace(/<\/?[^>]+(>|$)/g, "");
           stickyContentArray.push({ content: stickyContentTrimmed, id: items.id })
+          //translateContent(stickyContentTrimmed, "it")
         }
     }
   });
@@ -33,6 +34,8 @@ async function translateContent(content) {
 
 getStickyNotes();
 
+const text = "Kope"
+console.log(translate(text, "eng"))
 
 console.log(stickyContentArray)
 
