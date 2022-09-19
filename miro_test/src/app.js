@@ -1,8 +1,7 @@
 translate.engine = "google"; // Or "yandex", "libre", "deepl"
-let language = "it"; //Set a language to translate into
+translate.from = "ger" //Set a language to translate from
+let language = "eng"; //Set a language to translate into
 
-/* const text = await translate("hallo", "it")
-console.log(text) */
 
 
 // Get all items from the board
@@ -11,36 +10,36 @@ const items = await miro.board.get();
 let stickyContentArray = [];
 let stickyContentTrimmed = "";
 
+
+
 async function getStickyNotes() {
 
-  items.forEach((items) => {
+  let i = 0;
+
+  items.forEach(async (items) => {
     switch (items.type) {
       case 'sticky_note':
         if (items.content) {
           stickyContentTrimmed = items.content.replace(/<\/?[^>]+(>|$)/g, "");
-          stickyContentArray.push({ content: stickyContentTrimmed, id: items.id })
-          //translateContent(stickyContentTrimmed, "it")
+          stickyContentArray.push({ content: stickyContentTrimmed, id: items.id, index: i})
+          i++;
         }
     }
   });
-
-
+  stickyContentArray.forEach(async element => createStickynote(element))
 }
 
-async function translateContent(content) {
-  let translation = await translate(content, language)
-  return translation;
-};
-
-getStickyNotes();
-
-const text = "Kope"
-console.log(translate(text, "eng"))
-
-console.log(stickyContentArray)
-
+async function createStickynote(element) {
+  const stickyNote = await miro.board.createStickyNote({
+    content: await translate(element.content, language),
+    style: {
+      fillColor: 'red'
+    },
+    width: 1000,
+    x: element.index*1000 //Setting the stickyNote off by its index*1000
+  });
+}
 
 
 
-
-          //items.sync()
+await getStickyNotes();
