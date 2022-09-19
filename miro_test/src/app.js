@@ -12,6 +12,10 @@ let stickyContentArray = [];
 let cardContentTrimmed = "";
 let cardContentArray = [];
 
+//const stickyNote = await miro.board.getSelection();
+
+//console.log(sticky)
+//stickyNote[0].content = "Leo"
 
 
 async function getStickyNotes() {
@@ -26,6 +30,9 @@ async function getStickyNotes() {
           stickyContentTrimmed = items.content.replace(/<\/?[^>]+(>|$)/g, "");
           stickyContentArray.push({ content: stickyContentTrimmed, id: items.id, index: i })
           i++;
+          console.log(items)
+          items.content = await translate(stickyContentTrimmed, language) //Content wird replaced
+          items.sync();
         }
       case 'card': //For every selected card
         if(items.title) {
@@ -49,6 +56,7 @@ async function createStickynote(element) {
     width: 1000,
     x: element.index*1000 //Setting the stickyNote off by its index*1000
   });
+  //stickyNote.content = "TESSST"
 }
 
 /* ############## CARDS ######################################################################################### */
@@ -63,5 +71,9 @@ async function createCard(element) {
 }
 
 
-
+//console.log(stickyContentArray)
 await getStickyNotes();
+
+//console.log(document.getElementById("3458764533559056179"))
+
+//await stickyNote.sync();
