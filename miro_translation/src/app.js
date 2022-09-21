@@ -3,8 +3,6 @@ let intoLanguage = "ger"
 
 const htmlTag = '/<\/?[^>]+(>|$)/g'
 
-
-
 async function translation() {
 
   translate.engine = "google"; // Or "yandex", "libre", "deepl"
@@ -54,29 +52,18 @@ async function translation() {
 
 
 
-async function changeFromLanguage() {
-  if (fromLanguage === "eng") {
-    fromLanguage = "ger"
-    document.getElementById("fromLanguage").innerHTML = "German"
-    //console.log("FROMLANGUAGE: ", fromLanguage)
-  } else {
-    fromLanguage = "eng"
-    document.getElementById("fromLanguage").innerHTML = "English"
-    //console.log("FROMLANGUAGE: ", fromLanguage)
-  }
+async function changeFromLanguage(event) {
+  console.log(event.target.id)
+  fromLanguage = event.target.id
+  document.getElementById("fromLanguage").innerHTML = event.target.id
 }
 
-function changeIntoLanguage() {
-  if (intoLanguage === "eng") {
-    intoLanguage = "ger"
-    document.getElementById("intoLanguage").innerHTML = "German"
-    //console.log("INTOLANGUAGE: ", intoLanguage)
-  } else {
-    intoLanguage = "eng"
-    document.getElementById("intoLanguage").innerHTML = "English"
-    //console.log("INTOLANGUAGE: ", intoLanguage)
-  }
+function changeIntoLanguage(event) {
+  console.log(event.target.id)
+  intoLanguage = event.target.id
+  document.getElementById("intoLanguage").innerHTML = event.target.id
 }
+
 
 
 
