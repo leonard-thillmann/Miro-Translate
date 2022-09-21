@@ -5,9 +5,12 @@ let language = "eng"; //Set a language to translate into
 const htmlTag = '/<\/?[^>]+(>|$)/g'
 
 // Get all items from the board
-const items = await miro.board.getSelection();
+
 
 async function translation() {
+
+  const items = await miro.board.getSelection();
+
   items.forEach(async (items) => {
     switch (items.type) {
       case 'sticky_note': //For every selected Stickynote
@@ -44,6 +47,10 @@ async function translation() {
     }
     items.sync();
   });
+}
+
+function testFunction() {
+  console.log("TEST")
 }
 
 //await translation();
