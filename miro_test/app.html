@@ -28,7 +28,7 @@
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
         aria-expanded="false">
-        Select language
+        <span id="fromLanguage">English</span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item" href="#" onclick="changeFromLanguage()">English</a></li>
@@ -42,11 +42,11 @@
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
         aria-expanded="false">
-        Select language
+        <span id="intoLanguage">German</span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#" onclick="changeIntoLanguage()">English</a></li>
-        <li><a class="dropdown-item" href="#" onclick="changeIntoLanguage()">German</a></li>
+        <li><a class="dropdown-item" href="#" onclick="changeIntoLanguage()" id="eng">English</a></li>
+        <li><a class="dropdown-item" href="#" onclick="changeIntoLanguage()" id="ger">German</a></li>
       </ul>
     </div>
 
@@ -62,7 +62,7 @@
   <p><em>The default settings translate from german to english.</em></p>
 
   <br>
-  <button onclick="langCheck()">Check language</button>
+  <button type="button" class="btn btn-danger" onclick="langCheck()">Log languages in developer console</button>
 
 </body>
 

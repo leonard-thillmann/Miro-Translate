@@ -1,5 +1,5 @@
-let fromLanguage = ""
-let intoLanguage = ""
+let fromLanguage = "eng"
+let intoLanguage = "ger"
 
 const htmlTag = '/<\/?[^>]+(>|$)/g'
 
@@ -54,30 +54,34 @@ async function translation() {
 
 
 
+function changeFromLanguage() {
+  if (fromLanguage === "eng") {
+    fromLanguage = "ger"
+    document.getElementById("fromLanguage").innerHTML = "German"
+    console.log("FROMLANGUAGE: ", fromLanguage)
+  } else {
+    fromLanguage = "eng"
+    document.getElementById("fromLanguage").innerHTML = "English"
+    console.log("FROMLANGUAGE: ", fromLanguage)
+  }
+}
+
 function changeIntoLanguage() {
   if (intoLanguage === "eng") {
     intoLanguage = "ger"
+    document.getElementById("intoLanguage").innerHTML = "German"
     console.log("INTOLANGUAGE: ", intoLanguage)
   } else {
     intoLanguage = "eng"
+    document.getElementById("intoLanguage").innerHTML = "English"
     console.log("INTOLANGUAGE: ", intoLanguage)
   }
 }
 
-function changeFromLanguage() {
-  if (fromLanguage === "eng") {
-    fromLanguage = "ger"
-    console.log("FROMLANGUAGE: ", fromLanguage)
-  } else {
-    fromLanguage = "eng"
-    console.log("FROMLANGUAGE: ", fromLanguage)
-  }
-}
+
 
 function langCheck() {
   console.log("intoLanguage: ", intoLanguage, "fromLanguage: ", fromLanguage)
 }
 
 console.log("intoLanguage: ", intoLanguage, "fromLanguage: ", fromLanguage)
-
-//await translation();
