@@ -50,25 +50,16 @@ async function translation() {
   //console.log("TRIED TO TRANSLATE")
 }
 
-
-
 async function changeFromLanguage(event) {
   console.log(event.target.id)
   fromLanguage = event.target.id
-  document.getElementById("fromLanguage").innerHTML = event.target.id
+  document.getElementById("fromLanguage").innerHTML = event.target.innerHTML
 }
 
 function changeIntoLanguage(event) {
   console.log(event.target.id)
   intoLanguage = event.target.id
-  document.getElementById("intoLanguage").innerHTML = event.target.id
+  document.getElementById("intoLanguage").innerHTML = event.target.innerHTML
 }
-
-
-
-
-/* function langCheck() {
-  console.log("intoLanguage: ", intoLanguage, "fromLanguage: ", fromLanguage)
-} */
 
 //console.log("intoLanguage: ", intoLanguage, "fromLanguage: ", fromLanguage)
