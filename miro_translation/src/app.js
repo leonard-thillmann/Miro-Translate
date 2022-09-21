@@ -54,7 +54,7 @@ async function translation() {
 
 
 
-function changeFromLanguage() {
+async function changeFromLanguage() {
   if (fromLanguage === "eng") {
     fromLanguage = "ger"
     document.getElementById("fromLanguage").innerHTML = "German"
