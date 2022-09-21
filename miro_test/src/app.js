@@ -4,11 +4,9 @@ let language = "eng"; //Set a language to translate into
 
 const htmlTag = '/<\/?[^>]+(>|$)/g'
 
-// Get all items from the board
-
-
 async function translation() {
 
+  // Get all items from the board
   const items = await miro.board.getSelection();
 
   items.forEach(async (items) => {
