@@ -46,4 +46,4 @@ async function translation() {
   });
 }
 
-await translation();
+//await translation();
