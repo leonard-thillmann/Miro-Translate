@@ -31,13 +31,13 @@
         Select language
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">English</a></li>
-        <li><a class="dropdown-item" href="#">German</a></li>
+        <li><a class="dropdown-item" href="#" onclick="changeFromLanguage()">English</a></li>
+        <li><a class="dropdown-item" href="#" onclick="changeFromLanguage()">German</a></li>
       </ul>
     </div>
 
     <br>
-    <p>To:</p>
+    <p>Into:</p>
 
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
@@ -45,20 +45,24 @@
         Select language
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">English</a></li>
-        <li><a class="dropdown-item" href="#">German</a></li>
+        <li><a class="dropdown-item" href="#" onclick="changeIntoLanguage()">English</a></li>
+        <li><a class="dropdown-item" href="#" onclick="changeIntoLanguage()">German</a></li>
       </ul>
     </div>
 
   </div>
 
-  <!-- <button onclick="translation()">Translate</button> -->
+  <br>
 
+  <div>
+    <button type="button" class="btn btn-primary" onclick="translation()">Translate</button>
+  </div>
 
+  <br>
+  <p><em>The default settings translate from german to english.</em></p>
 
-
-
-
+  <br>
+  <button onclick="langCheck()">Check language</button>
 
 </body>
 
