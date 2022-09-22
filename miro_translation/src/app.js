@@ -1,6 +1,8 @@
 let fromLanguage = "eng"
 let intoLanguage = "ger"
 
+let temp;
+
 const htmlTag = '/<\/?[^>]+(>|$)/g'
 
 async function translation() {
@@ -60,6 +62,17 @@ function changeIntoLanguage(event) {
   console.log(event.target.id)
   intoLanguage = event.target.id
   document.getElementById("intoLanguage").innerHTML = event.target.innerHTML
+}
+
+function swapLanguages() {
+  document.getElementById("fromLanguage").innerHTML = document.getElementById(intoLanguage).innerHTML
+  
+  document.getElementById("intoLanguage").innerHTML = document.getElementById(fromLanguage).innerHTML
+
+  //Swap languages
+  temp = fromLanguage;
+  fromLanguage = intoLanguage;
+  intoLanguage = temp;
 }
 
 //console.log("intoLanguage: ", intoLanguage, "fromLanguage: ", fromLanguage)
