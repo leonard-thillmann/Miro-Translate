@@ -168,3 +168,14 @@ function swapLanguages() {
   fromLanguage = intoLanguage;
   intoLanguage = temp;
 }
+
+
+
+//########################################## INTERACTIONS ##############################################################
+
+function replaceAlert() {
+  let confirmAction = confirm("Are you sure that you want to irreversibly replace the content of these elements?");
+  if (confirmAction) {
+    translation()
+  }
+}
