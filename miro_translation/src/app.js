@@ -81,32 +81,63 @@ async function translationRight() {
   //Creates new, similar elements on the right side of the board
   items.forEach(async (item) => {
     switch (item.type) {
+
       case 'sticky_note':
         await miro.board.createStickyNote({
           ...item, //Uses the same values as the original Stickynote
           x: rightElementX + item.x - leftElementX,
-          height: undefined
+          height: undefined,
+          content: await translate(item.content.replace(htmlTag, ""), intoLanguage) //Content remove html Tag and
         });
 
       case 'card': //For every selected card
-        item.title = await translate(item.title.replace(htmlTag, ""), intoLanguage) //Content remove html Tag and
-        item.description = await translate(item.description.replace(htmlTag, ""), intoLanguage)
+        await miro.board.createCard({
+          ...item,
+          x: rightElementX + item.x - leftElementX,
+          title: await translate(item.title.replace(htmlTag, ""), intoLanguage), //Content remove html Tag and
+          description: await translate(item.description.replace(htmlTag, ""), intoLanguage)
+        })
         break;
+
       case 'text':
-        item.content = await translate(item.content.replace(htmlTag, ""), intoLanguage) //Content remove html Tag and
+        await miro.board.createText({
+          ...item,
+          x: rightElementX + item.x - leftElementX,
+          content: await translate(item.content.replace(htmlTag, ""), intoLanguage) //Content remove html Tag and
+        })
         break;
+
       case 'app_card':
-        item.title = await translate(item.title.replace(htmlTag, ""), intoLanguage) //Content remove html Tag and
-        item.description = await translate(item.description.replace(htmlTag, ""), intoLanguage)
+        await miro.board.createAppCard({
+          ...item,
+          x: rightElementX + item.x - leftElementX,
+          title: await translate(item.title.replace(htmlTag, ""), intoLanguage), //Content remove html Tag and
+          description: await translate(item.description.replace(htmlTag, ""), intoLanguage)
+        })
         break;
+
       case 'shape':
-        item.content = await translate(item.content.replace(htmlTag, ""), intoLanguage) //Content remove html Tag and
+        await miro.board.createShape({
+          ...item,
+          x: rightElementX + item.x - leftElementX,
+          content: await translate(item.content.replace(htmlTag, ""), intoLanguage) //Content remove html Tag and
+        })
         break;
+
       case 'frame':
-        item.title = await translate(item.title.replace(htmlTag, ""), intoLanguage) //Content remove html Tag and
+        await miro.board.createFrame({
+          ...item,
+          x: rightElementX + item.x - leftElementX,
+          title: await translate(item.title.replace(htmlTag, ""), intoLanguage), //Content remove html Tag and
+        })
         break;
+
       case 'image':
-        item.title = await translate(item.title.replace(htmlTag, ""), intoLanguage) //Content remove html Tag and
+        await miro.board.createImage({
+          ...item,
+          x: rightElementX + item.x - leftElementX,
+          title: await translate(item.title.replace(htmlTag, ""), intoLanguage) //Content remove html Tag and
+        })
         break;
     }
     item.sync();
