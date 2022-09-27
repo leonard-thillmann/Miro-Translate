@@ -19,8 +19,12 @@
 
 <body>
 
-  <div>
+  <!-- <div>
     <p>Select all the items you want to translate. Pick the languages. Press Abrakadabra and the magic will happen!</p>
+  </div> -->
+
+  <div>
+    <p>1. Select all the items you want to translate. 2. Pick languages. 3. Choose if you want to replace the content or create a copy of the selected elements.</p>
   </div>
 
   <br>
@@ -51,7 +55,8 @@
     </div>
 
     <div class="d-flex flex-row-reverse">
-      <button type="button" class="btn btn-secondary" onclick="swapLanguages()"><i class="bi bi-arrow-repeat"></i> Swap</button>
+      <button type="button" class="btn btn-secondary" onclick="swapLanguages()"><i class="bi bi-arrow-repeat"></i>
+        Swap</button>
     </div>
 
     <p>Into:</p>
@@ -77,14 +82,12 @@
         <li><a class="dropdown-item" href="#" id="spa">Spanish</a></li>
       </ul>
     </div>
-
   </div>
 
   <br>
-  <br>
-
   <div>
-    <button type="button" class="btn btn-primary" onclick="translation()">Abrakadabra</button>
+    <button type="button" class="btn btn-primary" onclick="translation()">Replace</button>
+    <button type="button" class="btn btn-primary" onclick="translationRight()">Copy paste</button>
   </div>
 
 </body>
