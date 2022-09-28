@@ -160,13 +160,11 @@ async function translationRight() {
 //########################################### CHANGE LANGUAGES ######################################################
 
 async function changeFromLanguage(event) {
-  console.log(event.target.id)
   fromLanguage = event.target.id
   document.getElementById("fromLanguage").innerHTML = event.target.innerHTML
 }
 
 function changeIntoLanguage(event) {
-  console.log(event.target.id)
   intoLanguage = event.target.id
   document.getElementById("intoLanguage").innerHTML = event.target.innerHTML
 }
