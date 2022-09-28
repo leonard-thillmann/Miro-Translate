@@ -1,5 +1,5 @@
-let fromLanguage = "eng"
-let intoLanguage = "ger"
+let fromLanguage = "ger"
+let intoLanguage = "eng"
 
 let temp;
 
@@ -74,7 +74,6 @@ async function translationRight() {
 
   //The x-value of the most left item on the board
   let leftElementX = elementsWithCoords.reduce((prev, current) => prev.x < current.x ? prev : current).x
-  console.log(leftElementX, rightElementX)
 
   const items = await miro.board.getSelection();
 
@@ -94,8 +93,8 @@ async function translationRight() {
         await miro.board.createCard({
           ...item,
           x: rightElementX + item.x - leftElementX,
-          title: await translate(item.title.replace(htmlTag, ""), intoLanguage), //Content remove html Tag and
-          description: await translate(item.description.replace(htmlTag, ""), intoLanguage)
+          title: await translate(item.title, intoLanguage), //Content remove html Tag and
+          description: await translate(item.description, intoLanguage)
         })
         break;
 
@@ -140,6 +139,18 @@ async function translationRight() {
         })
         break;
     }
+
+    //Changing the viewport to zoom to the most right element
+    const myViewport = await miro.board.viewport.set({
+      viewport: {
+        x: rightElement.x, // top-left corner of the viewport, relative to the center of the board
+        y: rightElement.y - 500, // top-left corner of the viewport, relative to the center of the board
+        width: 1920,
+        height: 1080,
+      },
+      animationDurationInMs: 500,
+    });
+
     item.sync();
   });
 }
