@@ -159,14 +159,47 @@ async function translationRight() {
 
 //########################################### CHANGE LANGUAGES ######################################################
 
-async function changeFromLanguage(event) {
+function changeFromLanguage(event) {
   fromLanguage = event.target.id
   document.getElementById("fromLanguage").innerHTML = event.target.innerHTML
+  document.getElementById("fromLanguageDropdown").classList.toggle("show");
+  document.getElementById("fromLanguageInput").value = ""
+  
+  //Emptying out the string the user put into the input after selecting a language
+  let input, filter, a, i;
+  input = document.getElementById("fromLanguageInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("fromLanguageDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
 }
 
 function changeIntoLanguage(event) {
   intoLanguage = event.target.id
   document.getElementById("intoLanguage").innerHTML = event.target.innerHTML
+  document.getElementById("intoLanguageDropdown").classList.toggle("show");
+
+  //Emptying out the string the user put into the input after selecting a language
+  let input, filter, a, i;
+  input = document.getElementById("intoLanguageInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("intoLanguageDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
 }
 
 function swapLanguages() {
@@ -186,5 +219,51 @@ function replaceAlert() {
   let confirmAction = confirm("Are you sure that you want to irreversibly replace the content of these elements?");
   if (confirmAction) {
     translation()
+  }
+}
+
+
+
+//########################################## DROPDOWN SEARCH ###########################################################
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function fromLanguageDropdown() {
+  document.getElementById("fromLanguageDropdown").classList.toggle("show");
+}
+
+function intoLanguageDropdown() {
+  document.getElementById("intoLanguageDropdown").classList.toggle("show");
+}
+
+function fromLanguageFilter() {
+  let input, filter, a, i;
+  input = document.getElementById("fromLanguageInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("fromLanguageDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+
+function intoLanguageFilter() {
+  let input, filter, a, i;
+  input = document.getElementById("intoLanguageInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("intoLanguageDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
   }
 }
