@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/src/assets/style.css" />
   <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/translate@1/translate.min.js"></script>
-  <script type="module" src="./src/app.js"></script>
+  <script src="./src/app.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
@@ -16,30 +16,12 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="app.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 </head>
 
 <body>
   <div>
 
 
-
-    <div>
-      <div>
-        <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-          aria-controls="collapseExample" label="How it works">
-          <i class="bi bi-question-circle fa-lg"></i>
-        </a>
-      </div>
-      <br>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          1. Select all the items you want to translate.<br><br>
-          2. Pick languages.<br><br>
-          3. Choose if you want to replace the content or create a copy of the selected elements.
-        </div>
-      </div>
-    </div>
 
     <div class="row">
 
@@ -66,8 +48,7 @@
           <button onclick="fromLanguageDropdown()" class="btn btn-secondary dropdown-toggle"
             id="fromLanguage">German</button>
           <div id="fromLanguageDropdown" class="dropdown-menu">
-            <input class="form-control" type="text" placeholder="Search.." id="fromLanguageInput"
-              onkeyup="fromLanguageFilter()">
+            <input type="text" placeholder="Search.." id="fromLanguageInput" onkeyup="fromLanguageFilter()">
             <a class="dropdown-item" onclick="changeFromLanguage(event)" id="ara">Arabic</a>
             <a class="dropdown-item" onclick="changeFromLanguage(event)" id="hrv">Croatian</a>
             <a class="dropdown-item" onclick="changeFromLanguage(event)" id="cze">Czech</a>
@@ -94,8 +75,7 @@
           <button onclick="intoLanguageDropdown()" class="btn btn-secondary dropdown-toggle"
             id="intoLanguage">English</button>
           <div id="intoLanguageDropdown" class="dropdown-menu">
-            <input class="form-control" type="text" placeholder="Search.." id="intoLanguageInput"
-              onkeyup="intoLanguageFilter()">
+            <input type="text" placeholder="Search.." id="intoLanguageInput" onkeyup="intoLanguageFilter()">
             <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="ara">Arabic</a>
             <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="hrv">Croatian</a>
             <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="cze">Czech</a>
@@ -120,13 +100,32 @@
 
     <br>
     <div>
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-outline-primary" onclick="replaceAlert()">Replace</button>
-        <button type="button" class="btn btn-outline-primary" onclick="translationRight()">Copy paste</button>
-      </div>
+      <button type="button" class="btn btn-primary" onclick="replaceAlert()">Replace</button>
+      <button type="button" class="btn btn-primary" onclick="translationRight()">Copy paste</button>
     </div>
 
     <br>
+    <br>
+    <div>
+      <div>
+        <a class="btn btn-warning" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+          aria-controls="collapseExample">
+          How it works <i class="bi bi-question-circle"></i>
+        </a>
+      </div>
+      <br>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          1. Select all the items you want to translate.<br><br>
+          2. Pick languages.<br><br>
+          3. Choose if you want to replace the content or create a copy of the selected elements.
+        </div>
+      </div>
+    </div>
+
+
+
+
 
 
   </div>

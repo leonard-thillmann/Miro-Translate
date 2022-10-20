@@ -185,7 +185,6 @@ function changeIntoLanguage(event) {
   intoLanguage = event.target.id
   document.getElementById("intoLanguage").innerHTML = event.target.innerHTML
   document.getElementById("intoLanguageDropdown").classList.toggle("show");
-  document.getElementById("intoLanguageInput").value = ""
 
   //Emptying out the string the user put into the input after selecting a language
   let input, filter, a, i;
@@ -231,12 +230,10 @@ function replaceAlert() {
 toggle between hiding and showing the dropdown content */
 function fromLanguageDropdown() {
   document.getElementById("fromLanguageDropdown").classList.toggle("show");
-  document.getElementById("fromLanguageInput").focus();
 }
 
 function intoLanguageDropdown() {
   document.getElementById("intoLanguageDropdown").classList.toggle("show");
-  document.getElementById("intoLanguageInput").focus();
 }
 
 function fromLanguageFilter() {

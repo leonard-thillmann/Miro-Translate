@@ -1,8 +1,5 @@
 html,
 body {
-    overflow: scroll;
+    overflow: auto;
+    /* overflow-x: hidden; */
 }
-
-body::-webkit-scrollbar {
-    display: none;
-  }
