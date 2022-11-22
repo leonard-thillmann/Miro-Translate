@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/translate@1/translate.min.js"></script>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <script type="module" crossorigin src="/assets/style.a87c9e06.js"></script>
+  <link rel="stylesheet" href="/assets/style.501f8a9e.css">
+  <link rel="stylesheet" href="/assets/app.5e3dac12.css">
+</head>
+
+<body>
+  <div>
+
+
+
+    <div>
+      <div>
+        <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+          aria-controls="collapseExample" label="How it works">
+          <i class="bi bi-question-circle fa-lg"></i>
+        </a>
+      </div>
+      <br>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          1. Select all the items you want to translate.<br><br>
+          2. Pick languages.<br><br>
+          3. Choose if you want to replace the content or create a copy of the selected elements.
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col">
+        <span>From:</span>
+      </div>
+
+      <div class="col">
+
+      </div>
+
+      <div class="col">
+        <span>Into:</span>
+      </div>
+
+    </div>
+
+
+
+    <div class="row">
+
+      <div class="col">
+        <div class="dropdown">
+          <button onclick="fromLanguageDropdown()" class="btn btn-secondary dropdown-toggle"
+            id="fromLanguage">German</button>
+          <div id="fromLanguageDropdown" class="dropdown-menu">
+            <input class="form-control" type="text" placeholder="Search.." id="fromLanguageInput"
+              onkeyup="fromLanguageFilter()">
+            <a class="dropdown-item" onclick="changeFromLanguage(event)" id="ara">Arabic</a>
+            <a class="dropdown-item" onclick="changeFromLanguage(event)" id="hrv">Croatian</a>
+            <a class="dropdown-item" onclick="changeFromLanguage(event)" id="cze">Czech</a>
+            <a class="dropdown-item" onclick="changeFromLanguage(event)" id="eng">English</a>
+            <a class="dropdown-item" onclick="changeFromLanguage(event)" id="fin">Finnish</a>
+            <a class="dropdown-item" onclick="changeFromLanguage(event)" id="fra">French</a>
+            <a class="dropdown-item" onclick="changeFromLanguage(event)" id="ger">German</a>
+            <a class="dropdown-item" onclick="changeFromLanguage(event)" id="gle">Irish</a>
+            <a class="dropdown-item" onclick="changeFromLanguage(event)" id="ita">Italian</a>
+            <a class="dropdown-item" onclick="changeFromLanguage(event)" id="nor">Norwegian</a>
+            <a class="dropdown-item" onclick="changeFromLanguage(event)" id="pol">Polish</a>
+            <a class="dropdown-item" onclick="changeFromLanguage(event)" id="por">Portuguese</a>
+            <a class="dropdown-item" onclick="changeFromLanguage(event)" id="spa">Spanish</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col d-flex justify-content-center">
+        <span onclick="swapLanguages()" aria-label="Swap" title="Swap"><i class="bi bi-arrow-left-right"></i></span>
+      </div>
+
+      <div class="col">
+        <div class="dropdown">
+          <button onclick="intoLanguageDropdown()" class="btn btn-secondary dropdown-toggle"
+            id="intoLanguage">English</button>
+          <div id="intoLanguageDropdown" class="dropdown-menu">
+            <input class="form-control" type="text" placeholder="Search.." id="intoLanguageInput"
+              onkeyup="intoLanguageFilter()">
+            <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="ara">Arabic</a>
+            <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="hrv">Croatian</a>
+            <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="cze">Czech</a>
+            <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="eng">English</a>
+            <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="fin">Finnish</a>
+            <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="fra">French</a>
+            <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="ger">German</a>
+            <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="gle">Irish</a>
+            <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="ita">Italian</a>
+            <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="nor">Norwegian</a>
+            <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="pol">Polish</a>
+            <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="por">Portuguese</a>
+            <a class="dropdown-item" onclick="changeIntoLanguage(event)" id="spa">Spanish</a>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+    <br>
+    <div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-primary" onclick="replaceAlert()">Replace</button>
+        <button type="button" class="btn btn-outline-primary" onclick="translationRight()">Copy paste</button>
+      </div>
+    </div>
+
+    <br>
+
+
+  </div>
+
+
+
+</body>
+
+</html>
